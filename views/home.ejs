@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   *{
+ margin: 0;
+ padding: 0;
+ outline: none;
+ text-decoration: none;
+
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: blanchedalmond;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .8em;
+}
+form{
+ width: fit-content;
+ padding: 1.5em ;
+ border-radius: .5em;
+ border: 1px dashed darkblue;
+ display: flex;
+ flex-direction: column;
+ gap: .5em;
+}
+
+input{
+    padding: .5em ;
+    border: none;
+    border-radius: .5em;
+    background: rgba(0,0,0,.5);
+    color: honeydew;
+    cursor: pointer;
+}
+
+</style>
+<body>
+
+    <h1>File Upload</h1>
+    <form action="/" method="post" enctype="multipart/form-data"> 
+     <input type="file" name="image">
+     <input type="submit" value="Submit">
+     <p style="color: slategray;"> Only image mime types &LongRightArrow;... </p>
+    </form>
+ 
+</body>
+</html>

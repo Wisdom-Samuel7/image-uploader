@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+ margin: 0;
+ padding: 0;
+ outline: none;
+ text-decoration: none;
+
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: blanchedalmond;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .8em;
+}
+img{
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+    object-fit: cover;
+}
+p{
+    color: slategray;
+    font-weight: 900;
+    font-size: 1em;
+}
+h1{
+    color: darkblue;
+}
+.details{
+    background: transparent;
+    width: 24em;
+    height: 24em;
+    padding: 1em 0;
+    box-shadow: 2px 4px 10px slategray;
+    border-radius: .9em;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+.list{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: .2em;
+}
+.list:not(:last-child){
+    border-bottom: .5px solid slategrey;
+}
+</style>
+<body>
+
+    <h1 style="font-family: sans-serif;"> <%= msg %> </h1>
+    <img src="<%= typeof file != 'undefined' ? file : '' %>" alt="" class="img">
+  
+    <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <%= filename %> </p>
+
+   <div class="details">
+
+      <div class="list">
+         <p>File name</p>
+         <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <%= filename %> </p>
+      </div>
+
+      <div class="list">
+        <p>Destination</p>
+        <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <%= destination %> </p>
+     </div>
+
+     <div class="list">
+        <p>Size</p>
+        <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <%= size %> </p>
+     </div>
+
+     <div class="list">
+        <p>Mime type</p>
+        <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <%= mime %> </p>
+     </div>
+
+     <div class="list">
+        <p>Path</p>
+        <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <%= path %> </p>
+     </div>
+
+   </div>
+
+<script>
+
+    const img = document.querySelector("img")
+    const btn = document.querySelector("button")
+    const src = img.getAttribute("src")
+    console.log(src)
+
+btn.addEventListener("click",FetchAPI)
+
+ async function FetchAPI(){
+     await fetch("http://localhost:4000",{
+        method : "GET",
+        
+     }).then((data) =>{
+        console.log(data)
+    })
+ } 
+
+</script>
+</body>
+</html>
